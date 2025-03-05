@@ -1,173 +1,107 @@
-% !TEX encoding = UTF-8 Unicode
+This course is set-up in the following manner. In a regular week, on the Mondays, we have lectures. Here, key concepts are explained from a conceptual and theoretical perspective, and examples of code implementations is python are provided.  On the Tuesdays, we have lab sessions. During the lab sessions, we generally start with knowledge questions about that week's literature as well as the preceeding lecture. Afterwards, students will work on assignments that are provided. When students have finished the assignments, they can work on the group assignment. The tuturial lecture (Isa) will walk around, and will help students with issues they encounter). If multiple students are encountering the same issues, these problems will be discussed plenarily. Active participation in the tutorial meetings is needed to ensure that students understand the materials, and can work on the (group) assignments.
 
-%\documentclass[a4paper,10pt]{report}
-\documentclass[a4paper,10pt]{report}
-\usepackage[natbibapa,nosectionbib,tocbib,numberedbib]{apacite}
-\AtBeginDocument{\renewcommand{\bibname}{literature}}
-\usepackage{color,soul}
+\section*{Week 1: Course introduction \& Working with textual data}
 
-\usepackage[utf8x]{inputenc}
-\usepackage{graphicx}
-\usepackage{enumerate}
-\usepackage{hyperref}
+\subsection*{Monday, 31--3:  Lecture}
+
+During this first lecture, we will kickstart the course. We also take a first look into using computational methods for communication science by discussing what we can learn from analyzing texts. 
 
 
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage{pifont}
+\subsection*{Tuesday, 1--4. Lab session}
 
-\usepackage{xcolor}
-\newcommand\change[1]{\textcolor{red}{#1}}
+\textsc{\ding{52} Read this manual and inspect the course Canvas page.}\\
+\textsc{\ding{52} Make sure your computer is ready to use for the course }\\
+\textsc{\ding{52} Read in advance: \cite{waldherr_between_2024}.} \\
+%\textsc{\ding{52}Read in advance: chapter 10: Text as data \cite{van_atteveldt_computational_2022}.} \\
+\textsc{\ding{52} Read in advance: \cite{Boumans2016}.} \\
 
-\usepackage{lmodern}
-\usepackage{listings}
-\lstset{
-	basicstyle=\scriptsize\ttfamily,
-	columns=flexible,
-	breaklines=true,
-	numbers=left,
-	%stepsize=1,
-	numberstyle=\tiny,
-	backgroundcolor=\color[rgb]{0.85,0.90,1}
-}
+During the first tutorial meeting, we will introduce the course: We will explain the course goals and policies. We will take what we discussed in the lecture and use this to analyze text. We will start slow, and there will be time to go over some of the basic concepts as discussed in CCS-1. We will practice with some simple top-down and bottom-up algorithm for text analysis.
 
+\section*{Week 2:  Bottom-up approaches to text analysis}
 
-\let\oldquote\quote
-\let\endoldquote\endquote
-\renewenvironment{quote}{\footnotesize\oldquote}{\endoldquote}
+\subsection*{Monday, 7--4: Lecture}
 
-\title{Computational Communication Science 2\\ Course Manual}
-\author{\emph{Course coordination and lectures:}\\ dr. Anne Kroon (a.c.kroon@uva.nl)\\dr. Saurabh Khanna (s.khanna@uva.nl) \\ \\ \emph{Lab sessions:} \\Yoohee Kang (y.kang@uva.nl) \\~\\College of Communication\\University of Amsterdam}
-\date{Spring Semester 2025 (block 2)}
+\textsc{\ding{52}Read in advance chapter 10: Text as data \cite{van_atteveldt_computational_2022}.} \\
+\textsc{\ding{52}Read in advance: \cite{Brinberg2021}.} \\
 
+This week, we will discuss different ways to represent text data, starting with traditional methods like Bag of Words and TF-IDF before moving to word embeddings. We will explore cosine similarity to measure text similarity. 
 
-\begin{document}
-	\maketitle
-	
-	\tableofcontents
+\subsection*{Tuesdag, 8--4: Lab session}
+During this lab session, you will complete the first set of MC-questions. 
 
-	
-	\chapter{About this course}
-	
-	This course manual contains general information, guidelines, rules and schedules for the course Computational Communication Science 2 (6 ECTs), part of the Communication in the Digital Society Minor offered by the College of Communication at the University of Amsterdam. Please make sure you read it carefully, as it  contains information regarding assignments, deadlines and grading.
-	
-	\section{Course description}
-	
-	A sales website that recommends new products to you personally, a company that uses a chatbot to answer your questions, or an algorithm that automatically identifies and warns you about fake news content: In our digital society, we use computational methods to communicate with each other every day. In this course, we will zoom in on the computational methods that lay behind these new ways of communication. We will explore the basic principles of their design, acquire an understanding of their implications, and learn how these methods can be used for science. We will work with some of these methods ourselves in the weekly lab sessions to get hands-on experience with these techniques and experience their advantages and limitations first hand. During weekly lectures, we will critically discuss the role that these methods play in our daily lives and what responsibility we have when working with them. At the end of the course, you will have a basic understanding of the methods that underlie different ways of communication in the digital society, you can formulate an informed opinion about the implications of these new techniques, and you will have some first-hand experience in working with them.
-	
-	In this 7-week course, each week consists of one lecture that zooms in on a specific computational method and the possible applications of this method and of one tutorial in which we work with this method. Through this mixture of introductions to computational methods in the lectures and a hands-on approach during the lab sessions, you will acquire knowledge on computational communication science that continues on the knowledge that you gained in CCS-1. In total, there are 28 contact hours in this course (7x 2-hour lecture and 7x 2-hour tutorial). 
-	
-	\section{Goals}
-	Upon completion of this course, students should:
-	\begin{enumerate}[a]
-		\item Have a general understanding of state-of-the-art computational techniques useful to study communication phenomena in the digital society.
-		\item Have a basic understanding of how to apply rule-based, unsupervised and supervised techniques to answer research questions in the field of communication science.
-		\item Be able to identify key benefits and drawbacks associated with different rule-based and machine learning techniques.
-		\item Have basic knowledge of what communication scientific questions can be answered using computational methods.
-		\item Be able to apply a subset of these techniques independently in order to answer some basic research questions in the field of communication in the digital society.
-		\item Have experience with independently solving problems in Python scripts by gathering information from online platforms.
-		\item Be able to clearly communicate through written texts what steps were taken in a research project using computational methods.
-	\end{enumerate}
+During this tutorial meeting, we will practice with the concepts and code as introduced in Monday's lecture.  We will start practicing with transforming textual data to matrices, using  \texttt{sklearn}'s vectorizers. We will try to measure the similarity between sets of documents using different approaches. In addition, we will practice with a simple LDA model. \\
 
-	\section{Study materials}
-	During this course, Python is the programming language that we will be working with. Hence, students should bring a laptop to each class, with a working Python environment installed.  
-	
-	In addition, a list of assigned readings is made available in this syllabus. All readings are available for download online using the UvA Digital Library or Google Scholar. If a reading is not available online, the material will be made available on the course Canvas page.
-	
-	
-\chapter{Assignments, grading, and rules}
-Assessment for this course is based on a combination of individual and group assignments. 
-	
-\section{Overview of assessments}
-The overall course grade is based on the following assignments:
-\begin{itemize}
-	\item Regular multiple-choice questions (\(20\%\))
-	\item Group assignment: Written report (\(20\%\))
-	\item Group assignment: Presentation (\(10\%\))
-	\item Exam (\(50\%\))
-\end{itemize}
+In addition, you will form small groups of around 4 students for the group assignment. In case you understand all concepts, and finished the in-class assignments, you can start working on the group assignment. Specifically, we can start with exploring the dataset as provided, inspect relevant variables, and start working on cleaning the dataset and division of tasks. 
 
-\section{Regular multiple-choice questions ($20\%$)}
-At the start of the lab sessions, students will be asked to answer four questions about that week's literature and/or the preceeding literature as well as about the content discussed in that week's lecture. There will be MC questions in the lab sessions of week 1, 2, 3, 7 and 8. This means that there are five weeks with MC-questions. In total, students can answer 20 questions (5 weeks * 4 questions). To receive full marks for this assignment, 16 questions need to be answered correctly. Hence, even if one of the lab sessions during which the MC-questions need to be answered is missed, it is still possible to receive full marks on the assignment.
-	
-\section{Group assignment: report ($20\%$)}
-In groups, you will work on a group assignment. See the description here in Section ~\ref{sec:groupassignment}
+\section*{Week 3: Recommender systems}
 
-\section{Group assignment: presentation ($10\%$)}
-In week 6, you will present your group assignment in class. 
+\subsection*{Monday, 14--4: Lecture}
+\textsc{\ding{52} Read in advance: \cite{Moller2018}.}\\
+\textsc{\ding{52} Read in advance: \cite{Loecherbach2020}.}\\
 
-\section{Exam ($50\%$)}
-During the last tutorial meeting of the course, students will make an exam. This assignment will test students' understanding of concepts as discussed in the course. In addition, students are presented with a computational coding challenge on one of the techniques discussed in the course. The final assignment is an individual assignment. 
+In today's lecture, we will discuss different types of recommender systems. In order to understand how recommender systems work, an understanding of the concepts as discussed in previous weeks is crucial. Specifically, in order to build a recommender system, one needs to understand how to preprocess data, transfrom textual data to data matrices, and calculate similarity between texts. 
 
-\section{Grading}
-Students have to get a pass (5.5 or higher) for (1) the group report, and (2) for the final assignment. If the grade of the group assignments is lower than 5.5, an improved version of the written work can be handed in within one week after the grade is communicated to the student(s). If the grade of final assignment is lower than 5.5, students have to complete a resit for the assignment. If the improved version of the group assignment or the resit of the final assignment is still graded lower than 5.5, the course cannot be completed. Improved versions of the group assignment and the resit of the final assignment cannot be graded higher than 6.0. 
+\subsection*{Tuesdag, 15--4: Lab session}
+During this week's lab session, we will practice with designing a recommender system yourself. You will experiment with different settings, and inspect the effects thereof on the recommendation content. 
 
-\section{Deadlines and submitting assignments}
-Please send all assignments and papers as a PDF file to ensure that it can be read and is displayed the same way on any device. Hardcopies are not required. Multiple files should be compressed and handed in as one .zip file or .tar.gz file. If instructions ask you to submit your assignment by sending it to the instructor, send your assignment via \url{https://filesender.surf.nl/} instead of direct email. Ensure that for all the files and/or folders you submit, your name(s) are included in the file-/ foldername. \\
-	
-Assignments that are not completed on time, will be not be graded and receive the grade 1. 
-	\begin{itemize}
-		\item For the group report and the final assignment, this means that all required files need to be submitted before the deadline. 
-	\end{itemize}
-Note that the deadline of an assignment is only met when the all files are submitted \emph{before} the deadline.
+\section*{Week 4: Group presentation recommender system}
 
-\section{Plagiarism \& fraud}
-The provisions of the regulations governing fraud and plagiarism for UvA students apply in full to students of this course. \\
+\subsection*{Monday, 21--4: No Lecture (Easter Monday)}
 
-Students are expected to be aware what plagiarism and fraud is. Consult the Regulations Governing Fraud and Plagiarism for UvA Students before you write a paper or essay. These regulations explain exactly what the university understand plagiarism and fraud to mean, and the rules you must adhere to. In line with these regulations, know that all documents handed in for this course must reflect your own individual knowledge and skills. You cannot make use of or reproduce work from others and present it as your own work. This applies to scientific work, content produced by AIs, and also includes work by fellow students.  
-It means that:  
-	\begin{itemize}
-	\item incorrect citations (not correctly following APA 7 rules for citations), 
-	\item working together on an individual assignment,
-	\item using text or other content generated by AI,
-	\item correcting each other’s assignments, 
-	\item sharing your assignment with others as an example, or 
-	\item copying (parts of) an assignment from others (including example papers) or your own work (self-plagiarism – including assignments handed in previous editions of this or other courses)
-\end{itemize}
-are not allowed unless explicitly mentioned in the instructions. When in doubt, ask your lecturer. \\
+\subsection*{Tuesday, 22--4: Lab session}
 
- The program Turnitin will be used for the detection of plagiarism in written assignments. In submitting a text, the student consents to the text being entered in the database of the detection program concerned. Any suspicion of fraud and plagiarism (including self plagiarism) will be reported to the Examinations Board. To avoid doing prohibited things ‘by accident’ or ‘due to ignorance’, we urgently advise you to consult the following site about \textbf{fraud and plagiarism}: \url{https://student.uva.nl/en/content/az/plagiarism-and-fraud/plagiarism-and-fraud.html}
+During this week's lab session, you will present your group assignment in class. 
 
-\subsection{Attributing code}
-Plagiarism rules extend to code as well. It is understandable that your code is inspired by the code on the slides of the lectures, and by solutions found on sources such as \texttt{stackoverflow}. That is how coding works; you build on the insights and solutions of others. While it is perfectly fine to rely on solutions provided by others, it is \emph{highly important} that you are transparent with respect to \emph{where you got your code from}. More specifically, it should be clear what is your own code, and which parts are derived from other sources. That is, if you copy-paste code and use it in your group assignment or final assignment, please include a reference to it's source (by simply including a comment like: \texttt{\# The following function is copied from https://stackoverflow.com/XXXXX/XXXXX} for (almost) literal copy-pasting, or \texttt{\# The code in this cell is inspired by https://...; I modified Y and Z}. 
+\section*{Week 5: Taking a break}
 
-Ensure absolute clarity regarding the distinction between your own work and that of others. 
+\subsection*{Monday, 28--4: No Lecture -- UvA teaching free week}
+\subsection*{Tuesday, 29--4: No Lab session -- UvA teaching free week}
 
-\subsection{Use of AI tools}
-It is self-evident that, in alignment with the aforementioned rules, the use of AI tools such as ChatGPT or Copilot to generate code is not acceptable. Handing in such code will be considered fraud.
+\textsc{\ding{52} Take a break}\\
 
-\section{Presence and participation}
-Students must attend all meetings as attendance is mandatory. Failing to attend more than one tutorial meeting, regardless of the reason, will result in exclusion from the course. In addition to attending the meetings, students must read all the assigned literature and continue working on programming tasks after the lab sessions. Solely attending the lab sessions is insufficient to successfully finish the course; it must be accompanied by continuous self-study.
+\emph{Note that this week is an "education-free week", meaning that there will not be a lecture or a tutorial this week. Take a well-deserved brake and we continue the course in week 6!}
 
-\subsection{Class lateness policy} Students are expected to arrive at class \emph{on time}. Being late twice will be considered as one nonattendance. \\
+\section*{Week 6: Introduction to supervised machine learning)}
 
-\section{Language}
-All meetings will be held in English. The assignments must be written and presented in English. 
+\subsection*{Deadline group project: Tuesday 6--5}
 
-\section{Study advisors}
-The Study Advisers from Communication Science (https://student.uva.nl/communication-science/contact/study-advisers/study-advisers-cs.htm) are the go-to persons for all planning related questions concerning the Minor’s program and should be the ones contacted when indicated by the lecturers or by the course policies. They may refer you to the Study Advisers from your own course (if you do not follow the Communication Science Bachelor’s programme) when needed. 
+The deadline for handing in the group assignment is at the start of this week, \textbf{Tuesday 6--5 at 11:00AM}.
 
-\section{Staying informed}
-It is your responsibility to check the means of communications used for this course (i.e., your email account, the course Canvas page, and the course Github page) on a regular basis, which in most cases means daily. 
+\subsection*{Monday, 5--5: No Lecture (Liberation Day)}
 
-\section{Teaching team and contacting the lecturers}
-In this edition, the course will be taught by Anne Kroon, Saurabh Khanna, and Isa van Leeuwen. Anne and Marthe will teach the lectures and Isa will teach the tutorials.
+\subsection*{Tuesday, 6--5: Lecture}
+\textsc{\ding{52} Read in advance: \cite{vermeer_seeing_2019}}\\
+\textsc{\ding{52} Read in advance \cite{meppelink_reliable_2021}.}\\
 
-Please contact Anne \emph{and} Marthe for any questions related to the logistics of the lectures, assignments, or the course in general.
-Please contact Isa for any questions regarding the logistics of the tutorials. 
-
-Note that the team will not answer e-mails about specific coding issues (e.g., questions about error messages or general Python issues). Please use the tutorial meetings to ask question related to your specific code.
-
-\chapter{Group assignment: Research report with code}
-\label{sec:groupassignment}
-\input{GroupAssignment}
-
-\chapter{Course Schedule}
-
-\input{CourseSchedule}
-
-\bibliographystyle{apacite}
-\bibliography{literature.bib}
+In this week, we will not have a lab session -- but rather a lecture on Tuesday. We will discuss the introduction to supervised machine learning. We will discuss the basic principles of supervised machine learning using practical examples as well as example code. We will also discuss the role and applications of supervised machine learning in research and society.
 
 
+\section*{Week 7: Validation in supervised machine learning}
 
-\end{document}
+\subsection*{Monday, 12--5: Lecture}
+\textsc{\ding{52} Read in advance \cite{birkenmaier_search_2023}.}\\
+
+In this lecture, we will take a deeper dive into supervised machine learning whereby we also discuss how to validate classifiers.
+
+\subsection*{Tuesday, 13--5: lab session}
+
+
+\section*{Week 8: Coding in an academic context}
+
+\subsection*{Monday, 19--5: Lecture}
+\textsc{\ding{52} Read in advance \cite{hube_understanding_2019}.} \\
+\textsc{\ding{52} Read in advance \cite{bender_dangers_2021}.} \\
+
+In the last lecture, we reflect on what we learned but mostly on how we can use this responsibly as scholars and researchers. 
+
+\subsection*{Tuesday, 20--5: Lab session}
+In the last lab session of the course, we will discuss scholars' use of code for research and the opportunities and responsibilities that this brings. It will also include a hands-on session on how to create responsible code.
+
+\section*{Week 9: Final week}
+
+\subsection*{Monday, 26--5: No lecture}
+In this week, there will be no lecture so you can prepare for the exam.
+
+\subsection*{Tuesday, 27--5: Final assignment}
+In the last lab session of the course, the exam will take place. 
+
