@@ -41,12 +41,17 @@ How would you handle reading a large number of files efficiently?
 *Hint*: The `glob` module can help find files, and `with open()` ensures proper file handling. You can read multiple files using:
 
 ```python
-from glob import glob
+dataset_path = 'articles'
 
-files = glob('path_to_dataset/*/*.txt')
-for file in files[:5]:  # Read first 5 files as a sample
-    with open(file, 'r', encoding='utf-8') as f:
-        print(f.read()[:500])  # Display first 500 characters
+folders = os.listdir(dataset_path)
+print("Folders:", folders)
+
+# Check the contents of each folder to get an overview.
+for folder in folders:
+    folder_path = os.path.join(dataset_path, folder)
+    if os.path.isdir(folder_path):
+        print(f"Folder: {folder}")
+        print("Contents:", os.listdir(folder_path))
 ```
 
 ### 5. Tokenization
