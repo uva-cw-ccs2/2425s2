@@ -38,7 +38,7 @@ Load a sample of the dataset and display the first few lines of text.
 
 How would you handle reading a large number of files efficiently?
 
-*Hint*: The `glob` module can help find files, and `with open()` ensures proper file handling. You can read multiple files using:
+*Hint*: The `glob` module can help find files:
 
 ```python
 dataset_path = 'articles'
