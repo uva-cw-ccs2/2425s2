@@ -28,7 +28,7 @@ Each group will focus on a different text-processing technique.
 - **Group 3:** Lemmatization
 - **Group 4:** N-grams (bigrams or trigrams)
 
-## **Step 2: Load a Sample Dataset**
+## **Step 2: Load a sample dataset**
 Use a small dataset like product reviews, news headlines, or tweets. Here’s an example:
 ```python
 sample_text = [
@@ -101,17 +101,14 @@ generate_wordcloud(stemmed_text, "Stemming")
 generate_wordcloud(lemmatized_text, "Lemmatization")
 ```
 
-## **Step 5: Share & Discuss in Mentimeter**
+## **Step 5: Share & Discuss**
 1. Save your generated word cloud as an image.
    ```python
    wordcloud.to_file("wordcloud.png")
    ```
-2. Upload it to **Mentimeter** (or any collaborative platform).
+2. Upload it [here](https://amsuni-my.sharepoint.com/:f:/g/personal/a_c_kroon_uva_nl/EtGTToswpF5GtpUu20lCQU8B6Rqe_e3x_uU_pkq3tFoyMg?e=XkOq4Q).
 3. Compare different word clouds and discuss:
    - How does preprocessing change the key words?
    - Do n-grams reveal different insights than single words?
    - What do TF-IDF scores tell us about word importance?
-
-## **Summary**
-This activity helps you understand how preprocessing affects text analysis and visualization. Each group will contribute insights based on their approach, making this an engaging and interactive learning experience!
 
